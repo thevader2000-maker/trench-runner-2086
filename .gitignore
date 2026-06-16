@@ -1,0 +1,40 @@
+# Secrets and local environment
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencies and package-manager noise
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local tools and generated helper downloads
+tools/
+
+# Generated release archives and duplicate packaged builds
+release/
+*.zip
+
+# Local captures, logs and temporary diagnostics
+*.log
+benchmark-output.html
+voice-test-server*.log
+
+# Backups and temporary work
+_backup_before_polish/
+offline-frames/
+trailer/offline-frames/
+*.tmp
+*.tmp.*
+
+# OS/editor noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+.idea/

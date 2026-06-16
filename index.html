@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050817">
+  <link rel="icon" href="data:,">
+  <title>Trench Runner 2086</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="game" aria-label="Trench Runner 2086 Spielfeld"></canvas>
+  <div id="keyArt" aria-hidden="true"></div>
+
+  <div id="scanlines"></div>
+  <header class="brand">
+    <span class="brand-mark">TR</span>
+    <div>
+      <strong>TRENCH RUNNER</strong>
+      <small>2086 // OMEGA CORE ASSAULT</small>
+    </div>
+  </header>
+
+  <section id="hud" class="hidden">
+    <div class="hud-left">
+      <div class="label-row"><span>HULL</span><b id="hullText">100</b></div>
+      <div class="meter"><i id="hullBar"></i></div>
+      <div class="label-row"><span>SHIELD</span><b id="shieldText">100</b></div>
+      <div class="meter cyan"><i id="shieldBar"></i></div>
+      <div class="label-row"><span>BOOST</span><b id="boostText">100</b></div>
+      <div class="meter orange"><i id="boostBar"></i></div>
+    </div>
+    <div class="hud-center">
+      <small>MISSION PHASE</small>
+      <strong id="phaseLabel">APPROACH</strong>
+      <span id="missionTimer">00:00</span>
+    </div>
+    <div class="hud-right">
+      <small>SCORE</small>
+      <strong id="score">000000</strong>
+      <span><b id="speed">880</b> KM/S</span>
+      <span>HOSTILES <b id="hostiles">00</b></span>
+    </div>
+    <div id="bossHud" class="boss-hud hidden">
+      <span id="bossLabel">CORE GUARDIAN // SHIELD NODES 3</span>
+      <div><i id="bossBar"></i></div>
+    </div>
+    <div id="escapeHud" class="escape-hud hidden">
+      <small>CORE DETONATION</small>
+      <strong id="escapeCountdown">25.0</strong>
+      <span>BOOST BONUS <b id="escapeBonus">+0000</b></span>
+    </div>
+    <div id="crosshair" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+    <div id="statusMessage"></div>
+    <div id="radioMessage" class="radio-message" role="status" aria-live="polite" aria-atomic="true">
+      <span id="radioSpeaker">CONTROL</span>
+      <p id="radioText"></p>
+    </div>
+    <div id="missionBeat" class="mission-beat">
+      <small id="missionBeatKicker">TACTICAL UPDATE</small>
+      <strong id="missionBeatTitle">BREAK THE LINE</strong>
+      <span id="missionBeatText">CLEAR A PATH TO THE CORE</span>
+    </div>
+    <div id="tutorialHint" class="tutorial-hint hidden">
+      <small>FLIGHT TRAINING</small>
+      <strong id="tutorialTitle">MOVE</strong>
+      <span id="tutorialText">WASD / YZ / ARROWS</span>
+      <i id="tutorialProgress"></i>
+    </div>
+  </section>
+
+  <main id="menu" class="panel">
+    <div class="eyebrow">CODEX CHALLENGE DEMO // 03:30 TARGET</div>
+    <h1>TRENCH<br><span>RUNNER 2086</span></h1>
+    <p>Durchbrich die Verteidigung der orbitalen Megastruktur OMEGA CORE. Zerstöre den Reaktor. Entkomme vor der Detonation.</p>
+    <div class="ship-select">
+      <div class="ship-select-head"><span>SELECT INTERCEPTOR</span><small id="selectedShipRole">BALANCED ASSAULT</small></div>
+      <div class="ship-grid">
+        <button class="ship-card" data-ship="specter">
+          <b>SPECTER</b><small>FAST STRIKE</small>
+          <span>SPD <i style="--stat:95%"></i></span>
+          <span>ARM <i style="--stat:45%"></i></span>
+          <span>ROF <i style="--stat:100%"></i></span>
+        </button>
+        <button class="ship-card selected" data-ship="vanguard">
+          <b>VANGUARD</b><small>BALANCED ASSAULT</small>
+          <span>SPD <i style="--stat:72%"></i></span>
+          <span>ARM <i style="--stat:72%"></i></span>
+          <span>ROF <i style="--stat:72%"></i></span>
+        </button>
+        <button class="ship-card" data-ship="bulwark">
+          <b>BULWARK</b><small>HEAVY DEFENSE</small>
+          <span>SPD <i style="--stat:48%"></i></span>
+          <span>ARM <i style="--stat:100%"></i></span>
+          <span>ROF <i style="--stat:52%"></i></span>
+        </button>
+      </div>
+    </div>
+    <div class="difficulty-select">
+      <span>MISSION RISK</span>
+      <div>
+        <button class="difficulty-card" data-difficulty="cadet">CADET <b>x0.8</b></button>
+        <button class="difficulty-card selected" data-difficulty="ace">ACE <b>x1.0</b></button>
+        <button class="difficulty-card" data-difficulty="nightmare">NIGHTMARE <b>x1.6</b></button>
+      </div>
+    </div>
+    <div class="menu-actions">
+      <button id="startButton" class="primary">MISSION STARTEN <kbd>ENTER</kbd></button>
+      <button id="scoresButton">BESTENLISTE</button>
+      <button id="settingsButton">OPTIONEN</button>
+    </div>
+    <div class="controls-grid">
+      <div><kbd><span data-control-action="up">W</span>/<span data-control-action="left">A</span>/<span data-control-action="down">S</span>/<span data-control-action="right">D</span></kbd><span>ZIELSTEUERUNG</span></div>
+      <div><kbd data-control-action="fire">SPACE</kbd><span>LASER</span></div>
+      <div><kbd data-control-action="boost">SHIFT</kbd><span>BOOST</span></div>
+      <div><kbd data-control-action="shield">E</kbd><span>SCHILDIMPULS</span></div>
+      <div><kbd data-control-action="vector">V</kbd><span>VECTOR MODE</span></div>
+      <div><kbd data-control-action="pause">ESC</kbd><span>PAUSE</span></div>
+    </div>
+    <footer>TR-7 FLIGHT SYSTEM <span>ONLINE</span> // GAMEPAD SUPPORTED</footer>
+  </main>
+
+  <section id="briefing" class="panel hidden">
+    <div class="eyebrow">MISSION BRIEFING</div>
+    <h2>OPERATION<br><span>NEON SPEAR</span></h2>
+    <div class="briefing-copy">
+      <p><b>PILOT,</b> NEXUS hat den OMEGA CORE aktiviert.</p>
+      <p>Fliege durch den Energiegraben, eliminiere die Verteidigung und vernichte den Reaktorkern.</p>
+      <p class="warning">RÜCKKEHR NICHT GARANTIERT.</p>
+    </div>
+    <div class="countdown">START IN <b id="countdown">5</b></div>
+    <button id="skipButton">BRIEFING ÜBERSPRINGEN</button>
+  </section>
+
+  <section id="pause" class="panel compact hidden">
+    <div class="eyebrow">SYSTEM HOLD</div>
+    <h2>PAUSIERT</h2>
+    <button id="resumeButton" class="primary">FORTSETZEN</button>
+    <button id="quitButton">MISSION ABBRECHEN</button>
+  </section>
+
+  <section id="result" class="panel hidden">
+    <div class="eyebrow" id="resultEyebrow">MISSION REPORT</div>
+    <h2 id="resultTitle">MISSION<br><span>COMPLETE</span></h2>
+    <div class="result-stats">
+      <div><small>SCORE</small><b id="finalScore">0</b></div>
+      <div><small>ABSCHÜSSE</small><b id="finalKills">0</b></div>
+      <div><small>MAX COMBO</small><b id="finalCombo">0</b></div>
+      <div><small>PRÄZISION</small><b id="finalAccuracy">0%</b></div>
+    </div>
+    <div class="mission-rank"><small>MISSION RANK</small><strong id="missionRank">A</strong><span id="rankReason">COMBAT READY</span></div>
+    <label class="pilot-name">PILOTENNAME <input id="pilotName" maxlength="10" value="ACE"></label>
+    <button id="saveScoreButton" class="primary">SCORE SPEICHERN</button>
+    <button id="restartButton">NEUE MISSION</button>
+    <button id="exportTelemetryButton">PLAYTEST-DATEN</button>
+  </section>
+
+  <section id="leaderboard" class="panel hidden">
+    <div class="eyebrow">OMEGA SQUADRON</div>
+    <h2>TOP PILOTS</h2>
+    <ol id="scoreList"></ol>
+    <button id="closeScoresButton">ZURÜCK</button>
+  </section>
+
+  <section id="settings" class="panel hidden">
+    <div class="eyebrow">FLIGHT SYSTEMS</div>
+    <h2>OPTIONEN</h2>
+    <div class="settings-grid">
+      <label>MUSIK <input id="musicVolume" type="range" min="0" max="100" value="24"><b id="musicVolumeValue">24</b></label>
+      <label>EFFEKTE <input id="sfxVolume" type="range" min="0" max="100" value="90"><b id="sfxVolumeValue">90</b></label>
+      <label>EMPFINDLICHKEIT <input id="sensitivity" type="range" min="60" max="150" value="100"><b id="sensitivityValue">100</b></label>
+      <label>EFFEKTE
+        <select id="effectsQuality">
+          <option value="high">HOCH</option>
+          <option value="medium">MITTEL</option>
+          <option value="low">NIEDRIG</option>
+        </select>
+      </label>
+      <label>UNTERTITEL
+        <select id="subtitlesEnabled">
+          <option value="true">AN</option>
+          <option value="false">AUS</option>
+        </select>
+      </label>
+      <label>FARBSEHEN
+        <select id="colorVisionMode">
+          <option value="normal">STANDARD</option>
+          <option value="deuteranopia">DEUTERANOPIE</option>
+          <option value="protanopia">PROTANOPIE</option>
+          <option value="tritanopia">TRITANOPIE</option>
+        </select>
+      </label>
+      <label>KAMERABEWEGUNG
+        <select id="reducedMotion">
+          <option value="false">STANDARD</option>
+          <option value="true">REDUZIERT</option>
+        </select>
+      </label>
+    </div>
+    <div class="keybind-section">
+      <div class="settings-subhead"><span>STEUERUNG BELEGEN</span><small>TASTE WÄHLEN // DOPPELBELEGUNG WIRD VERHINDERT</small></div>
+      <div id="keybindGrid" class="keybind-grid">
+        <button type="button" class="keybind-button" data-bind-action="up"><span>HOCH</span><kbd>W</kbd></button>
+        <button type="button" class="keybind-button" data-bind-action="down"><span>RUNTER</span><kbd>S</kbd></button>
+        <button type="button" class="keybind-button" data-bind-action="left"><span>LINKS</span><kbd>A</kbd></button>
+        <button type="button" class="keybind-button" data-bind-action="right"><span>RECHTS</span><kbd>D</kbd></button>
+        <button type="button" class="keybind-button" data-bind-action="fire"><span>LASER</span><kbd>SPACE</kbd></button>
+        <button type="button" class="keybind-button" data-bind-action="boost"><span>BOOST</span><kbd>SHIFT</kbd></button>
+        <button type="button" class="keybind-button" data-bind-action="shield"><span>SCHILD</span><kbd>E</kbd></button>
+        <button type="button" class="keybind-button" data-bind-action="vector"><span>VECTOR</span><kbd>V</kbd></button>
+        <button type="button" class="keybind-button" data-bind-action="pause"><span>PAUSE</span><kbd>ESC</kbd></button>
+      </div>
+      <button id="resetBindingsButton" type="button">STANDARDTASTEN</button>
+    </div>
+    <button id="fullscreenButton">VOLLBILD UMSCHALTEN</button>
+    <button id="closeSettingsButton" class="primary">ÜBERNEHMEN</button>
+  </section>
+
+  <div id="toast"></div>
+  <pre id="benchmarkReport" hidden></pre>
+  <script src="config.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

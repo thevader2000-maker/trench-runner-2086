@@ -1,0 +1,47 @@
+{
+  "durationSeconds": 60,
+  "sampleRate": 48000,
+  "gameplaySyncDelaySeconds": 3,
+  "cues": [
+    {
+      "time": 0.2,
+      "event": "static and title swell"
+    },
+    {
+      "time": 7.2,
+      "event": "CONTROL launch line"
+    },
+    {
+      "time": 12.2,
+      "event": "dual laser volley"
+    },
+    {
+      "time": 15.2,
+      "event": "weapons free"
+    },
+    {
+      "time": 23,
+      "event": "vector mode switch"
+    },
+    {
+      "time": 28,
+      "event": "NEXUS warning"
+    },
+    {
+      "time": 34.2,
+      "event": "ARCHON reveal"
+    },
+    {
+      "time": 42,
+      "event": "core collapse escape command"
+    },
+    {
+      "time": 53,
+      "event": "external detonation"
+    },
+    {
+      "time": 57.2,
+      "event": "final CONTROL confirmation"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "trench-runner-2086",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate:audio": "node scripts/generate-audio.mjs",
+    "generate:voices": "node scripts/generate-voice-lines.mjs",
+    "process:voices": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/process-voice-lines.ps1",
+    "test": "node tests/smoke.mjs",
+    "benchmark": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run-performance-benchmark.ps1",
+    "test:jury": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run-jury-mode-test.ps1",
+    "test:accessibility": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/test-accessibility.ps1",
+    "test:qa": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run-final-qa.ps1",
+    "render:trailer": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/render-trailer.ps1",
+    "render:trailer:offline": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/render-trailer-offline.ps1",
+    "generate:trailer-audio": "node scripts/generate-trailer-audio.mjs",
+    "mux:trailer-audio": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/mux-trailer-audio.ps1",
+    "convert:trailer": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/convert-trailer.ps1",
+    "capture:press": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/capture-press-kit.ps1",
+    "capture:submission": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/capture-submission-preview.ps1"
+  },
+  "devDependencies": {
+    "kokoro-js": "^1.2.1"
+  }
+}

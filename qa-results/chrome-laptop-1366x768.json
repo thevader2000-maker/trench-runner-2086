@@ -1,0 +1,182 @@
+{
+  "browser": "chrome",
+  "version": "149.0.7827.54",
+  "profile": "laptop",
+  "viewport": "1366x768",
+  "passed": true,
+  "checks": {
+    "layoutPassed": true,
+    "assetsPassed": true,
+    "gamepadPassed": true,
+    "voicePassed": true,
+    "performancePassed": true,
+    "fps": 52.7
+  },
+  "errors": [],
+  "networkErrors": [],
+  "pages": [
+    {
+      "page": "submission",
+      "url": "/submission.html",
+      "details": {
+        "title": "Trench Runner 2086 // Codex Challenge Submission",
+        "images": [
+          {
+            "src": "press/screenshots/02-dual-laser-first-contact.png",
+            "loaded": true
+          },
+          {
+            "src": "press/screenshots/04-retro-vector-mode.png",
+            "loaded": true
+          },
+          {
+            "src": "press/screenshots/05-archon-reveal.png",
+            "loaded": true
+          },
+          {
+            "src": "press/screenshots/06-event-horizon.png",
+            "loaded": true
+          },
+          {
+            "src": "press/screenshots/07-critical-escape.png",
+            "loaded": true
+          }
+        ],
+        "videoReady": true,
+        "playLinks": 3,
+        "scrollWidth": 1366,
+        "innerWidth": 1366
+      },
+      "consoleErrors": [],
+      "pageErrors": [],
+      "requestFailures": [
+        {
+          "url": "/trailer/trench-runner-2086-trailer-final.mp4",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "httpErrors": [],
+      "screenshot": "chrome-laptop-submission-1366x768.png"
+    },
+    {
+      "page": "game",
+      "url": "/index.html?jury",
+      "details": {
+        "qa": {
+          "state": "playing",
+          "width": 1366,
+          "height": 768,
+          "dpr": 1,
+          "playerX": 0.5185,
+          "playerY": 0,
+          "shots": 0,
+          "phaseIndex": 0,
+          "effects": "low",
+          "gamepadConnected": true,
+          "voiceAssets": 6,
+          "voiceActive": false
+        },
+        "performance": {
+          "averageFps": 52.7,
+          "minFps": 44.2,
+          "longFrames": 14,
+          "qualityDrops": 0,
+          "finalEffects": "low",
+          "maxEnemies": 7,
+          "maxEnemyShots": 0,
+          "maxPlayerShots": 8,
+          "maxParticles": 0,
+          "phases": [
+            {
+              "phase": "APPROACH",
+              "averageFps": 53.1,
+              "minFps": 8.1,
+              "longFrames": 14,
+              "maxEnemies": 7,
+              "maxEnemyShots": 0,
+              "maxParticles": 0
+            },
+            {
+              "phase": "THE TRENCH",
+              "averageFps": 0,
+              "minFps": 60,
+              "longFrames": 0,
+              "maxEnemies": 0,
+              "maxEnemyShots": 0,
+              "maxParticles": 0
+            },
+            {
+              "phase": "CORE ACCESS",
+              "averageFps": 0,
+              "minFps": 60,
+              "longFrames": 0,
+              "maxEnemies": 0,
+              "maxEnemyShots": 0,
+              "maxParticles": 0
+            },
+            {
+              "phase": "CORE GUARDIAN",
+              "averageFps": 0,
+              "minFps": 60,
+              "longFrames": 0,
+              "maxEnemies": 0,
+              "maxEnemyShots": 0,
+              "maxParticles": 0
+            },
+            {
+              "phase": "ESCAPE",
+              "averageFps": 0,
+              "minFps": 60,
+              "longFrames": 0,
+              "maxEnemies": 0,
+              "maxEnemyShots": 0,
+              "maxParticles": 0
+            }
+          ]
+        },
+        "accessibility": {
+          "subtitles": true,
+          "colorVision": "normal",
+          "reducedMotion": true,
+          "bindings": {
+            "up": "KeyW",
+            "down": "KeyS",
+            "left": "KeyA",
+            "right": "KeyD",
+            "fire": "Space",
+            "boost": "ShiftLeft",
+            "shield": "KeyE",
+            "vector": "KeyV",
+            "pause": "Escape"
+          },
+          "rebindingAction": null
+        },
+        "canvas": {
+          "width": 1366,
+          "height": 768
+        },
+        "scrollWidth": 1366,
+        "innerWidth": 1366,
+        "inputSnapshot": {
+          "state": "playing",
+          "width": 1366,
+          "height": 768,
+          "dpr": 1,
+          "playerX": 0.4357,
+          "playerY": 0,
+          "shots": 8,
+          "phaseIndex": 0,
+          "effects": "low",
+          "gamepadConnected": true,
+          "voiceAssets": 6,
+          "voiceActive": true
+        }
+      },
+      "consoleErrors": [],
+      "pageErrors": [],
+      "requestFailures": [],
+      "httpErrors": [],
+      "screenshot": "chrome-laptop-game-1366x768.png"
+    }
+  ]
+}

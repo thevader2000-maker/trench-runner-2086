@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Trailer verification</title>
+<video id="video" src="trench-runner-2086-trailer-final.webm" muted></video>
+<pre id="result">loading</pre>
+<script>
+  const video = document.querySelector("#video");
+  video.addEventListener("loadedmetadata", () => {
+    const report = () => {
+      document.querySelector("#result").textContent = JSON.stringify({
+        duration: Number.isFinite(video.duration) ? video.duration : null,
+        width: video.videoWidth,
+        height: video.videoHeight,
+        readyState: video.readyState
+      });
+      document.documentElement.dataset.ready = "true";
+    };
+    if (Number.isFinite(video.duration)) {
+      report();
+    } else {
+      video.addEventListener("timeupdate", report, { once: true });
+      video.currentTime = 1e101;
+    }
+  });
+  video.addEventListener("error", () => {
+    document.querySelector("#result").textContent = JSON.stringify({
+      error: video.error?.message || "video metadata failed"
+    });
+  });
+</script>

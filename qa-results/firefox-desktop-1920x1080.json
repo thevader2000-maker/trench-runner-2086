@@ -1,0 +1,94 @@
+﻿{
+    "browser":  "firefox",
+    "version":  "151.0.4",
+    "profile":  "desktop",
+    "viewport":  "1920x1080",
+    "passed":  true,
+    "checks":  {
+                   "voicePassed":  true,
+                   "layoutPassed":  true,
+                   "assetsPassed":  true
+               },
+    "errors":  [
+
+               ],
+    "networkErrors":  [
+
+                      ],
+    "pages":  [
+                  {
+                      "page":  "submission",
+                      "details":  {
+                                      "title":  "Trench Runner 2086 // Codex Challenge Submission",
+                                      "images":  [
+                                                     {
+                                                         "src":  "press/screenshots/02-dual-laser-first-contact.png",
+                                                         "loaded":  true
+                                                     },
+                                                     {
+                                                         "src":  "press/screenshots/04-retro-vector-mode.png",
+                                                         "loaded":  true
+                                                     },
+                                                     {
+                                                         "src":  "press/screenshots/05-archon-reveal.png",
+                                                         "loaded":  true
+                                                     },
+                                                     {
+                                                         "src":  "press/screenshots/06-event-horizon.png",
+                                                         "loaded":  true
+                                                     },
+                                                     {
+                                                         "src":  "press/screenshots/07-critical-escape.png",
+                                                         "loaded":  true
+                                                     }
+                                                 ],
+                                      "videoReady":  true,
+                                      "playLinks":  3,
+                                      "scrollWidth":  1920,
+                                      "innerWidth":  1920
+                                  }
+                  },
+                  {
+                      "page":  "game",
+                      "details":  {
+                                      "qa":  {
+                                                 "state":  "playing",
+                                                 "width":  1920,
+                                                 "height":  1080,
+                                                 "dpr":  1,
+                                                 "playerX":  0,
+                                                 "playerY":  0,
+                                                 "shots":  0,
+                                                 "phaseIndex":  0,
+                                                 "effects":  "high",
+                                                 "gamepadConnected":  false,
+                                                 "voiceAssets":  6,
+                                                 "voiceActive":  true
+                                             },
+                                      "accessibility":  {
+                                                            "subtitles":  true,
+                                                            "colorVision":  "normal",
+                                                            "reducedMotion":  false,
+                                                            "bindings":  {
+                                                                             "up":  "KeyW",
+                                                                             "down":  "KeyS",
+                                                                             "left":  "KeyA",
+                                                                             "right":  "KeyD",
+                                                                             "fire":  "Space",
+                                                                             "boost":  "ShiftLeft",
+                                                                             "shield":  "KeyE",
+                                                                             "vector":  "KeyV",
+                                                                             "pause":  "Escape"
+                                                                         },
+                                                            "rebindingAction":  null
+                                                        },
+                                      "canvas":  {
+                                                     "width":  1920,
+                                                     "height":  1080
+                                                 },
+                                      "scrollWidth":  1920,
+                                      "innerWidth":  1920
+                                  }
+                  }
+              ]
+}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <radialGradient id="bg"><stop stop-color="#16125b"/><stop offset="1" stop-color="#02040d"/></radialGradient>
+    <linearGradient id="beam"><stop stop-color="#36f4ff"/><stop offset="1" stop-color="#36f4ff" stop-opacity="0"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <g stroke="#287cff" fill="none" opacity=".48">
+    <path d="M0 980L960 430 1920 980M0 820L960 430 1920 820M0 660L960 430 1920 660"/>
+    <path d="M160 1080L960 430M420 1080L960 430M700 1080L960 430M1220 1080L960 430M1500 1080L960 430M1760 1080L960 430"/>
+  </g>
+  <g filter="url(#glow)">
+    <path d="M960 810L1160 965 1010 920 960 1020 910 920 760 965Z" fill="#071129" stroke="#36f4ff" stroke-width="8"/>
+    <path d="M900 930L510 520" stroke="url(#beam)" stroke-width="15"/>
+    <path d="M1020 930L1410 520" stroke="url(#beam)" stroke-width="15"/>
+    <circle cx="960" cy="430" r="145" fill="#250626" stroke="#ff477d" stroke-width="8"/>
+    <circle cx="960" cy="430" r="55" fill="#ff7b35"/>
+    <circle cx="830" cy="380" r="24" fill="#36f4ff"/>
+    <circle cx="1090" cy="380" r="24" fill="#36f4ff"/>
+    <circle cx="960" cy="565" r="24" fill="#36f4ff"/>
+  </g>
+  <text x="110" y="180" fill="#ff7b35" font-family="Consolas,monospace" font-size="28" letter-spacing="12">CODEX CHALLENGE</text>
+  <text x="110" y="320" fill="#eaffff" font-family="Arial Black,sans-serif" font-size="112" letter-spacing="-5">TRENCH</text>
+  <text x="110" y="430" fill="#36f4ff" font-family="Arial Black,sans-serif" font-size="112" letter-spacing="-5" filter="url(#glow)">RUNNER 2086</text>
+  <text x="118" y="490" fill="#7fa7b8" font-family="Consolas,monospace" font-size="24" letter-spacing="7">DESTROY THE CORE. ESCAPE THE BLAST.</text>
+  <text x="1530" y="1010" fill="#36f4ff" font-family="Consolas,monospace" font-size="22" letter-spacing="5">BUILT WITH CODEX</text>
+</svg>

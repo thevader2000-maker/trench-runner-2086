@@ -1,0 +1,38 @@
+[
+  {
+    "id": "control-launch",
+    "voice": "af_heart",
+    "speed": 1.04,
+    "text": "Flight link confirmed. Vanguard, you are cleared to engage."
+  },
+  {
+    "id": "control-weapons-free",
+    "voice": "af_heart",
+    "speed": 1.02,
+    "text": "Training complete. Weapons free."
+  },
+  {
+    "id": "nexus-warning",
+    "voice": "af_bella",
+    "speed": 0.94,
+    "text": "Unauthorized craft detected. Core defenses active."
+  },
+  {
+    "id": "archon-reveal",
+    "voice": "am_fenrir",
+    "speed": 0.88,
+    "text": "You crossed a graveyard to reach me. Now join it."
+  },
+  {
+    "id": "control-escape",
+    "voice": "af_heart",
+    "speed": 1.08,
+    "text": "Core collapse confirmed. Full boost. Get out now."
+  },
+  {
+    "id": "control-finale",
+    "voice": "af_heart",
+    "speed": 0.9,
+    "text": "We hear you, pilot."
+  }
+]

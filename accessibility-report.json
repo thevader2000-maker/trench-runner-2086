@@ -1,0 +1,11 @@
+﻿{
+    "testedAt":  "2026-06-15T10:22:51.1981507Z",
+    "subtitlesDefault":  true,
+    "ariaLive":  "polite",
+    "colorVision":  "tritanopia",
+    "reducedMotion":  true,
+    "fireBinding":  "KeyF",
+    "reboundFireWorks":  true,
+    "duplicateBindingRejected":  true,
+    "persistedAfterReload":  true
+}
